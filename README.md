@@ -4,3 +4,5 @@ This is just a personal repository in which to practice gradually more complicat
 Topics covered in this collection:
 
 - Sliding Window Problems
+- Dynamic Programming
+- Concurrency
