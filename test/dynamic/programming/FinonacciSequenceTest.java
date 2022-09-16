@@ -26,6 +26,13 @@ class FinonacciSequenceTest {
         Assertions.assertEquals(expectedResult, finonacciSequence.fib(n));
     }
 
+    @ParameterizedTest
+    @MethodSource("provideInputAndExpectedResultForDynamicProgramming")
+    void fibRec(int n, int expectedResult) {
+        var finonacciSequence = new FinonacciSequence();
+        Assertions.assertEquals(expectedResult, finonacciSequence.fibRecursive(n, new int []{}));
+    }
+
 
 
     private static Stream<Arguments> provideInputAndExpectedResultForBruteForce() {
