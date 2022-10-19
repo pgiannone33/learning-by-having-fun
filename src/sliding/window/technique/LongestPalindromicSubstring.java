@@ -1,38 +1,41 @@
-/*
 package sliding.window.technique;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class LongestPalindromicSubstring {
 
     public int max = Integer.MIN_VALUE;
     public String longestSubs = "";
 
-    public static void main(String[] args) {
-        LongestPalindromicSubstring longestPalindromicSubstring = new LongestPalindromicSubstring();
-        longestPalindromicSubstring.longestPalindrome("FINDNITIANHERE");
-    }
+    public String find(String aString) {
 
-    public String longestPalindrome(String s) {
-        pal(s, 0);
-        System.out.println(longestSubs);
-        return longestSubs;
-    }
+        for(int i = 0; i<aString.length(); i++) {
+            int start = i;
+            int end = i;
 
-    void pal(String s, int i) {
-        int start = 0;
-        for(int end = 1; end<s.length(); end++) {
-
+            while (start>= 0 && end<aString.length() && aString.charAt(start) == aString.charAt(end)) {
+                String myStr = aString.substring(start, end+1);
+                if(myStr.length() > max) {
+                    max = myStr.length();
+                    longestSubs = myStr;
+                }
+                start = start - 1;
+                end = end + 1;
+            }
         }
 
+        for(int i = 0; i<aString.length(); i++) {
+            int start = i;
+            int end = i+1;
 
-    public boolean isPalindrome (String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(s);
-        stringBuilder.reverse();
-        return s.equals(stringBuilder.toString());
+            while (start>= 0 && end<aString.length() && aString.charAt(start) == aString.charAt(end)) {
+                String myStr = aString.substring(start, end+1);
+                if(myStr.length() > max) {
+                    max = myStr.length();
+                    longestSubs = myStr;
+                }
+                start = start - 1;
+                end = end + 1;
+            }
+        }
+
+        return longestSubs;
     }
 }
-*/
